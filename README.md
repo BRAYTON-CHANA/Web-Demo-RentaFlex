@@ -270,10 +270,7 @@ graph TD
    - Integrar la subida de imágenes con **Cloudinary**.
    - Implementar la edición y eliminación de propiedades por el autor.
 
-6. **Favoritos:**
-   - Implementar la funcionalidad para que los usuarios puedan agregar propiedades a sus favoritos, con la restricción de que el usuario debe estar autenticado.
-
-7. **Responsividad:**
+6. **Responsividad:**
    - Asegurar que todas las páginas sean responsivas y se adapten a diferentes dispositivos usando **Tailwind CSS**.
 
 ---
