@@ -180,55 +180,6 @@ graph TD
     D --> L[Agregar a favoritos ]
 
 ```
-## 🧩 **Funcionalidades por Área**
-
-### 🏠 **Página Principal**
-- Lista todas las propiedades disponibles.
-- Filtros: tipo, ubicación, precio, fechas.
-- Tarjetas con imagen, título, precio y resumen.
-
-### 🔍 **Búsqueda**
-- Búsqueda y filtrado sobre MongoDB.
-- Usa `$and`, `$gte`, `$lte`, `$elemMatch` según criterios.
-
-### 📄 **Detalle de Propiedad**
-- Galería de imágenes desde Cloudinary.
-- Muestra toda la información.
-- Botón "Reservar" solo si el usuario inició sesión.
-
-### 🔐 **Registro/Login**
-- Email y contraseña.
-- JWT para autenticar y proteger rutas sensibles.
-
-### 🏡 **Publicar Propiedad**
-- Solo para usuarios autenticados.
-- Subida de imágenes a Cloudinary.
-- Edición y eliminación por autor.
-
-### ⭐ **Favoritos**
-- Guardar/eliminar propiedades favoritas.
-- Vista de favoritos en el panel de usuario.
-
-### 📅 **Reservas (Simuladas)**
-- Validación de fechas y creación de reserva.
-- Actualización del calendario de disponibilidad.
-- No se realiza pago real.
-
-### 👤 **Panel de Usuario**
-- Lista de propiedades creadas.
-- Reservas activas.
-- Favoritos guardados.
-
-## 🧪 **Despliegue Gratuito**
-- ✅ **Render (Backend):** Web Service gratuito.
-  - Auto deploy con GitHub.
-  - Comando build: `npm install`
-  - Comando start: `node app.js`
-  
-- ✅ **Vercel (Frontend):** Deploy Vite (React).
-  - Salida: `dist`
-  - Auto deploy tras push en main.
-
 
 # Plan de Desarrollo
 
