@@ -23,20 +23,39 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Interceptor para manejar errores
 api.interceptors.response.use(
-  (response) => {
+  response => {
     console.log('Response:', response.data);
     return response;
   },
-  (error) => {
+  error => {
+    const { status, statusText, data, headers } = error.response || {};
+    const { url, method, headers: reqHeaders, data: reqBody, params } = error.config || {};
+    
     console.error('API Error:', {
-      status: error.response?.status,
-      data: error.response?.data,
-      message: error.message
+      // Respuesta
+      status,
+      statusText,
+      data,
+      headers,
+      
+      // Petición que falló
+      url,
+      method,
+      params,
+      reqHeaders,
+      reqBody,
+      
+      // Info interna de Axios
+      code: error.code,
+      isAxiosError: error.isAxiosError,
+      
+      // Detalles del error JS
+      message: error.message,
+      stack: error.stack,
     });
     
-    if (error.response?.status === 401) {
+    if (status === 401) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       window.location.href = '/login';

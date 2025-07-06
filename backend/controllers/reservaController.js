@@ -6,13 +6,27 @@ const crearReserva = async (req, res) => {
   try {
     const { propiedad_id, desde, hasta } = req.body;
 
-    // Check if property exists
+    const diagnostico = {
+      idRecibido: propiedad_id,
+      tipoId: typeof propiedad_id,
+      longitudId: propiedad_id.length,
+      esValidoMongoose: mongoose.Types.ObjectId.isValid(propiedad_id)
+    };
+
+    
+
+    console.log('Buscando propiedad con ID:', propiedad_id);
+    console.log('Tipo de ID:', typeof propiedad_id);
+
+
     const propiedad = await Propiedad.findById(propiedad_id);
+    
     if (!propiedad) {
-      return res.status(404).json({ message: 'Propiedad no encontrada' });
+      return res.status(404).json({ message: 'Propiedad no encontraa', 
+        diagnostico,
+        sugerencia: "Verifique el ID o la conexión con la base de datos" });
     }
 
-    // Check if property is available for the selected dates
     const reservasExistentes = await Reserva.find({
       propiedad: propiedad_id,
       estado: 'confirmada',

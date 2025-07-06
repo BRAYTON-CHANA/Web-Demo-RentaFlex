@@ -16,6 +16,7 @@ const PropertyDetails = () => {
   const [reservation, setReservation] = useState({
     desde: '',
     hasta: '',
+    
   });
 
   useEffect(() => {
@@ -40,17 +41,21 @@ const PropertyDetails = () => {
       navigate('/login');
       return;
     }
-
+    console.log("Llego hasta aqui");
     try {
+      console.log("Empezo recien");
       await api.post('/reservas', {
-        propiedad: id,
+        propiedad_id: id,
         desde: reservation.desde,
         hasta: reservation.hasta
       });
+      console.log("No Llego hasta navigate my reservations");
       navigate('/my-reservations');
+      console.log("Llego hasta navigate my reservations");
     } catch (error) {
       setError(error.response?.data?.message || 'Error al realizar la reserva');
     }
+    console.log("Se fue de aqui");
   };
 
   if (loading) {
