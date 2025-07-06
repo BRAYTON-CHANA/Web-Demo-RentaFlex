@@ -167,17 +167,18 @@ MONGODB_URI=tu_uri_mongodb
 
 ```mermaid
 graph TD
-    A[Inicio (sin login)] --> B[Ver propiedades]
+     A[Inicio ] --> B[Ver propiedades]
     B --> C[Filtrar por tipo, lugar, fechas]
     C --> D[Ver detalles de propiedad]
     D --> E[Iniciar sesión para reservar o publicar]
     E --> F[Formulario de reserva simulada]
-    E --> G[Formulario de publicación (con subida a Cloudinary)]
+    E --> G[Formulario de publicación]
     G --> H[Propiedad publicada]
     F --> I[Reserva registrada]
     I --> J[Mis reservas]
     H --> K[Mis propiedades]
-    D --> L[Agregar a favoritos (requiere login)]
+    D --> L[Agregar a favoritos ]
+
 ```
 ## 🧩 **Funcionalidades por Área**
 
